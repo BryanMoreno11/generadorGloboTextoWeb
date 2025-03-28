@@ -93,6 +93,25 @@ export class GloboTextoComponent implements OnInit {
 }
 
 
+descargarImagenes() {
+  this.imagenesGlobo.forEach((imagen, index) => {
+    const link = document.createElement('a');
+    link.href = imagen;
+    link.download = `globoTexto-${index + 1}.png`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setTimeout(() => {}, 100 * index);
+  });
+}
+
+limpiarImagenes() {
+  const inputImagenes = document.getElementById('imagenes') as HTMLInputElement;
+  inputImagenes.value = '';
+  this.imagenesGlobo = [];
+  this.imagenesInput = [];
+}
+
 
  
 

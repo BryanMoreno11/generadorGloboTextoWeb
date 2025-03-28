@@ -6,7 +6,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Generador de Memes</h5>
+          <h5 class="card-title">Generador de Globos de Texto</h5>
           
           <div class="mb-3">
             <label for="imagenes" class="form-label">Seleccionar Imágenes</label>
@@ -26,6 +26,18 @@
                    accept="image/*" 
                    (change)="onGloboSeleccionado($event)">
           </div>
+
+
+          <div class="mb-3">
+            <button class="btn btn-danger me-2" (click)="limpiarImagenes()">Limpiar Imágenes</button>
+            @if(imagenesGlobo.length > 0 && globoTexto){
+                <button class="btn btn-primary" (click)="descargarImagenes()">Descargar Imágenes</button>
+            }
+          </div>
+
+        
+          
+
         </div>
       </div>
     </div>
