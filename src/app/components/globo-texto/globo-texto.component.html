@@ -1,0 +1,57 @@
+
+
+<div class="container mt-4">
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Generador de Memes</h5>
+          
+          <div class="mb-3">
+            <label for="imagenes" class="form-label">Seleccionar Imágenes</label>
+            <input type="file" 
+                   class="form-control" 
+                   id="imagenes" 
+                   multiple 
+                   accept="image/*" 
+                   (change)="onImagenesSeleccionadas($event)">
+          </div>
+
+          <div class="mb-3">
+            <label for="globo" class="form-label">Globo de Texto</label>
+            <input type="file" 
+                   class="form-control" 
+                   id="globo" 
+                   accept="image/*" 
+                   (change)="onGloboSeleccionado($event)">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  @if(imagenesGlobo.length > 0 && globoTexto){
+    <div class="row mt-4" >
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title mb-4">Vista Previa</h5>
+           
+            <swiper-container [init]="false">
+              @for(imagen of imagenesGlobo; track imagen){
+                <swiper-slide>
+                  <div class="preview-container">
+                      <img [src]="imagen" 
+                      [alt]="'globoTexto'">
+                  </div>
+                </swiper-slide>
+              }
+            </swiper-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+
+</div>
